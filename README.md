@@ -25,23 +25,102 @@ Give time.sleep() for a break
 Give ep_chassis.drive_speed to have a circular movement.
 
 ## Program
-```python
+```
+Developed by: K.R.Hashish Vidya Sagar
+Register number:212222230047
+```
+```
 from robomaster import robot
 import time
+from robomaster import camera
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     ep_robot = robot.Robot()
     ep_robot.initialize(conn_type="ap")
+
     ep_chassis = ep_robot.chassis
+    ep_led = ep_robot.led
+    ep_camera = ep_robot.camera
+
+    print("Video streaming started.....")
+    ep_camera.start_video_stream(display=True, resolution = camera.STREAM_360P)
+
+    '''
+    x = x-axis movement distance,( meters) [-5,5]
+    y = y-axis movement distance,( meters) [-5,5]
+    z = rotation about z axis ( degree)[-180,180]
+    xy_speed = xy axis movement speed,( unit meter/second) [0.5,2]
+    '''
+    ep_chassis.move(x=2.8, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=255,g=100,b=0,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=50, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=255,g=0,b=255,effect="on")
+
+    ep_chassis.move(x=0.6, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=0,g=255,b=255,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=55, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=153,g=153,b=255,effect="on")
+
+    ep_chassis.move(x=0.7, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=255,g=0,b=0,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=65, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=0,g=0,b=128,effect="on")
+
+    
+    ep_chassis.move(x=1.5, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=128,g=0,b=0,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=-28, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=0,g=128,b=0,effect="on")
+
+    ep_chassis.move(x=1.3, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=255,g=102,b=0,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=32, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=255,g=0,b=127,effect="on")
+
+    ep_led.set_led(comp = "all",r=0,g=102,b=102,effect="on")
+    ep_chassis.move(x=1.3, y=0, z=0, xy_speed=1).wait_for_completed()
+
+    ep_chassis.move(x=0, y=0, z=57, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=74,g=198,b=123,effect="on")
+
+    ep_chassis.move(x=0.6, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=178,g=255,b=102,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=56, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=145,g=222,b=199,effect="on")
+
+    ep_chassis.move(x=1.8, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=102,g=0,b=102,effect="on")
+
+    ep_chassis.move(x=0, y=0, z=45, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=153,g=255,b=255,effect="on")
+
+    ep_chassis.move(x=0.5, y=0, z=0, xy_speed=1).wait_for_completed()
+    ep_led.set_led(comp = "all",r=201,g=145,b=222,effect="on")
+
+
+
+
+    
+
+    time.sleep(4)
+    ep_camera.stop_video_stream()
+    print("Stopped video streaming.....")
+
     ep_robot.close()
 ```
-## circular_movement.py:
-
 
 ## MobileRobot Movement Image:
 
 ![robo](./img/robomaster.png)
 
+![image](https://github.com/hashish9275/mobilerobot-openloopcontrol/assets/118707521/bd6f776e-e822-44db-ab3e-89ff489a1063)
+![py  exp 10 i](https://github.com/hashish9275/mobilerobot-openloopcontrol/assets/118707521/6b7c1c72-ba05-40b1-b4c9-8c94a142c77f)
 
 ## MobileRobot Movement Video:
 
